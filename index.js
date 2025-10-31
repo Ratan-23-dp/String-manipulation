@@ -1,0 +1,27 @@
+// Get user inputs
+let sentence = prompt("Enter a sentence:");
+if (!sentence || sentence.trim() === "") {
+  document.getElementById("output").innerHTML = "Please enter a valid sentence.";
+} else {
+  let substring = prompt("Enter the substring to check:");
+  let oldWord = prompt("Enter the word you want to replace:");
+  let newWord = prompt("Enter the new word:");
+
+  // Count words
+  let wordCount = sentence.trim().split(/\s+/).length;
+
+  // Check if substring exists
+  let message = sentence.includes(substring)
+    ? `Yes, the sentence contains '${substring}'.`
+    : `No, the sentence does not contain '${substring}'.`;
+
+  // Replace the word
+  let replacedSentence = sentence.replace(oldWord, newWord);
+
+  // Show output
+  document.getElementById("output").innerHTML = `
+    <b>Number of Words:</b> ${wordCount} <br>
+    <b>Replaced Sentence:</b> ${replacedSentence} <br>
+    <b>Message:</b> ${message}
+  `;
+}
